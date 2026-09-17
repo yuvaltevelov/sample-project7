@@ -7,7 +7,7 @@ export default async (_req: Request, _context: Context) => {
     gmail: configured("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"),
     calendar: configured("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"),
     drive: configured("GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET"),
-    news: configured("NEWS_API_KEY"),
+    news: true,
     markets: configured("MARKET_API_KEY")
   };
 
