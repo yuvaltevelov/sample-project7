@@ -1,9 +1,13 @@
 {
   "name": "intelligence-hub",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scripts": {
-    "dev": "netlify dev"
+    "dev": "netlify dev",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@netlify/blobs": "latest"
   },
   "devDependencies": {
     "@netlify/functions": "latest",
