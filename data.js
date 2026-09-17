@@ -1,0 +1,20 @@
+const NAV=[['home','⌂','בית'],['inbox','✉','Inbox'],['news','◉','News'],['markets','↗','Markets'],['calendar','▦','יומן'],['pac','P','PAC'],['tasks','✓','משימות'],['opps','◇','הזדמנויות'],['saved','☆','Research'],['connections','⚙','Connections'],['ask','✦','Ask AI']];
+const emails=[
+{id:1,cat:'PAC',pri:'high',sender:'המרכז האקדמי פרס',sub:'עדכון לגבי כיתת בחינה',sum:'כיתת הבחינה בסטטיסטיקה עודכנה. בדוק את הכיתה המעודכנת לפני ההגעה.',why:'שינוי לוגיסטי שיכול לגרום לפספוס הבחינה.',action:'הוסף ליומן'},
+{id:2,cat:'אבטחה',pri:'critical',sender:'Google',sub:'Security alert',sum:'זוהתה התראת אבטחה בחשבון. זהו נתון הדגמה בלבד.',why:'אירועי אבטחה מקבלים עדיפות מיידית.',action:'בדוק חשבון'},
+{id:3,cat:'קניות',pri:'medium',sender:'KSP',sub:'הזמנה מוכנה לאיסוף',sum:'הזמנה לדוגמה מוכנה לאיסוף בסניף.',why:'יש חלון זמן מוגבל לאיסוף.',action:'צור תזכורת'},
+{id:4,cat:'עבודה',pri:'high',sender:'מערכת משמרות',sub:'סידור עבודה חדש',sum:'פורסם סידור עבודה חדש. הנתונים כאן אינם הסידור האמיתי שלך.',why:'כדאי לבדוק התנגשויות מול לימודים ויומן.',action:'השווה ליומן'},
+{id:5,cat:'טכנולוגיה',pri:'medium',sender:'Cursor',sub:'Cloud pricing update',sum:'עדכון מוצר ותמחור לכלי פיתוח AI.',why:'רלוונטי אם אתה משתמש ב-Agent workflows.',action:'שמור למחקר'}];
+const events=[
+{id:1,topic:'AI Infrastructure',title:'ביקוש לתשתיות AI ממשיך להתרחב',what:'ספקיות ענן וחברות שבבים מגדילות השקעות בתשתיות AI.',why:'CapEx גבוה יותר עשוי להשפיע על שבבים, רשתות, קירור וחשמל.',impact:['NVDA','SMH','Data Centers','Power'],conf:'Multiple Sources'},
+{id:2,topic:'Energy',title:'Data Centers מעלים ביקוש לחשמל',what:'הרחבת חוות שרתים יוצרת לחץ על רשתות חשמל באזורים מסוימים.',why:'השפעה אפשרית על Grid, Nuclear, Gas, Solar ו-Batteries.',impact:['Grid','Nuclear','Gas','Batteries'],conf:'Analysis'},
+{id:3,topic:'Macro',title:'שינוי בציפיות הריבית משנה תמחור נכסים',what:'נתוני אינפלציה וריבית משנים את תוואי הציפיות.',why:'תשואות, דולר, זהב ומניות צמיחה מגיבים לשינוי בציפיות.',impact:['QQQM','USD','XAU/USD','Bonds'],conf:'Demo Explanation'},
+{id:4,topic:'Science',title:'AI מאיץ גילוי חומרים ותרופות',what:'כלי חישוב חדשים מקצרים שלבי מחקר וסריקה.',why:'פוטנציאל להשפיע על ביוטק, Materials ו-Drug Discovery.',impact:['Biotech','AI','Materials'],conf:'Analysis'}];
+const markets=[['QQQM','248.31','+0.7%','AI / rates'],['SMH','391.44','-1.2%','Semis / Taiwan'],['NVDA','183.70','+1.4%','AI demand'],['BTC','116,420','+2.1%','Liquidity'],['XAU/USD','3,664','-0.5%','USD / yields'],['EUR/USD','1.180','+0.2%','ECB / USD'],['USD/JPY','147.1','-0.3%','BoJ'],['Oil','67.40','+0.6%','Supply / geopolitics']];
+const macro=[['US','Inflation / Fed','ציפיות ריבית ותשואות הן מנוע מרכזי לדולר ולמניות צמיחה.'],['Israel','BoI / Risk premium','ריבית, שקל ופרמיית סיכון משפיעים על אשראי, נדל״ן ושוק מקומי.'],['UK','BoE / GBP','אינפלציה ושכר משפיעים על תוואי הריבית והליש״ט.'],['Japan','BoJ / JPY','נורמליזציה מוניטרית יכולה להזיז JPY ותשואות גלובליות.'],['Europe','ECB / EUR','צמיחה, אינפלציה וריבית משפיעים על EUR וסקטורים מחזוריים.']];
+const connectors=[['Gmail','מיילים, threads, deadlines ו-actions'],['Google Calendar','אירועים, התנגשויות ו-Intelligence Hub tag'],['News/Web','איסוף, deduplication, sources ו-event timeline'],['Markets','מחירים, catalysts ו-Why is this moving?'],['Google Drive','מסמכים, PDF, קורסים ומחקר']];
+let calendarItems=[{id:1,title:'בחינה / PAC',date:'2026-09-22',source:'PAC'},{id:2,title:'משימה חשובה',date:'2026-09-24',source:'Task'}];
+let savedItems=[];
+let emailState={};
+let tasks=[{id:1,t:'בדוק הודעות PAC',s:'PAC',done:false},{id:2,t:'בדוק את הסידור מול היומן',s:'עבודה',done:false},{id:3,t:'מעקב אחרי תשובה שנשלחה',s:'Waiting',done:false},{id:4,t:'שמור מחקר על AI infrastructure',s:'Research',done:true}];
+const opps=[['AI infrastructure compliance','ארגונים צריכים להבין מה מותר להעביר למודלי AI','B2B policy + monitoring layer','SaaS + integration'],['Data-center energy optimizer','צריכת חשמל וקירור עולה עם AI workloads','Optimization dashboard','Subscription + enterprise'],['Legacy automation studio','ארגונים מסורתיים מחזיקים workflows ידניים','Turnkey automation + AI agents','Project fee + support']];
